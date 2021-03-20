@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OOOPerchatkiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(OOOPerchatkiModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(OOOPerchatkiModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="History" EntityType="OOOPerchatkiModel.History" />
+    <EntitySet Name="Material" EntityType="OOOPerchatkiModel.Material" />
+    <EntitySet Name="MaterialSupplier" EntityType="OOOPerchatkiModel.MaterialSupplier" />
+    <EntitySet Name="MaterialType" EntityType="OOOPerchatkiModel.MaterialType" />
+    <EntitySet Name="Supplier" EntityType="OOOPerchatkiModel.Supplier" />
+    <EntitySet Name="SupplierType" EntityType="OOOPerchatkiModel.SupplierType" />
+    <EntitySet Name="sysdiagrams" EntityType="OOOPerchatkiModel.sysdiagrams" />
+    <EntitySet Name="Unit" EntityType="OOOPerchatkiModel.Unit" />
+    <AssociationSet Name="FK_Material_MaterialType" Association="OOOPerchatkiModel.FK_Material_MaterialType">
+      <End Role="MaterialType" EntitySet="MaterialType" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Unit" Association="OOOPerchatkiModel.FK_Material_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialSupplier_Material" Association="OOOPerchatkiModel.FK_MaterialSupplier_Material">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="MaterialSupplier" EntitySet="MaterialSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialSupplier_Supplier" Association="OOOPerchatkiModel.FK_MaterialSupplier_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="MaterialSupplier" EntitySet="MaterialSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supplier_SupplierType" Association="OOOPerchatkiModel.FK_Supplier_SupplierType">
+      <End Role="SupplierType" EntitySet="SupplierType" />
+      <End Role="Supplier" EntitySet="Supplier" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="idHistory" />
+    </Key>
+    <Property Name="idHistory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idMaterial" Type="Int32" Nullable="false" />
+    <Property Name="Action" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OldCount" Type="Int32" />
+    <Property Name="NewCount" Type="Int32" Nullable="false" />
+    <Property Name="DateUpdate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialTypeId" Type="Int16" Nullable="false" />
+    <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="QuanityInStock" Type="Int32" Nullable="false" />
+    <Property Name="MinQuanity" Type="Int32" Nullable="false" />
+    <Property Name="QuanityInPack" Type="Int32" Nullable="false" />
+    <Property Name="UnitId" Type="Byte" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MaterialType" Relationship="OOOPerchatkiModel.FK_Material_MaterialType" FromRole="Material" ToRole="MaterialType" />
+    <NavigationProperty Name="Unit" Relationship="OOOPerchatkiModel.FK_Material_Unit" FromRole="Material" ToRole="Unit" />
+    <NavigationProperty Name="MaterialSupplier" Relationship="OOOPerchatkiModel.FK_MaterialSupplier_Material" FromRole="Material" ToRole="MaterialSupplier" />
+  </EntityType>
+  <EntityType Name="MaterialSupplier">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialId" Type="Int32" Nullable="false" />
+    <Property Name="SupplierId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Material" Relationship="OOOPerchatkiModel.FK_MaterialSupplier_Material" FromRole="MaterialSupplier" ToRole="Material" />
+    <NavigationProperty Name="Supplier" Relationship="OOOPerchatkiModel.FK_MaterialSupplier_Supplier" FromRole="MaterialSupplier" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="MaterialType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialTypeName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Material" Relationship="OOOPerchatkiModel.FK_Material_MaterialType" FromRole="MaterialType" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierTypeId" Type="Int16" Nullable="false" />
+    <Property Name="INN" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="RateOfQuality" Type="Int32" Nullable="false" />
+    <Property Name="DateWorkStart" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="MaterialSupplier" Relationship="OOOPerchatkiModel.FK_MaterialSupplier_Supplier" FromRole="Supplier" ToRole="MaterialSupplier" />
+    <NavigationProperty Name="SupplierType" Relationship="OOOPerchatkiModel.FK_Supplier_SupplierType" FromRole="Supplier" ToRole="SupplierType" />
+  </EntityType>
+  <EntityType Name="SupplierType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierTypelName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Supplier" Relationship="OOOPerchatkiModel.FK_Supplier_SupplierType" FromRole="SupplierType" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Material" Relationship="OOOPerchatkiModel.FK_Material_Unit" FromRole="Unit" ToRole="Material" />
+  </EntityType>
+  <Association Name="FK_Material_MaterialType">
+    <End Type="OOOPerchatkiModel.MaterialType" Role="MaterialType" Multiplicity="1" />
+    <End Type="OOOPerchatkiModel.Material" Role="Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaterialType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="MaterialTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Unit">
+    <End Type="OOOPerchatkiModel.Unit" Role="Unit" Multiplicity="1" />
+    <End Type="OOOPerchatkiModel.Material" Role="Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialSupplier_Material">
+    <End Type="OOOPerchatkiModel.Material" Role="Material" Multiplicity="1" />
+    <End Type="OOOPerchatkiModel.MaterialSupplier" Role="MaterialSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MaterialSupplier">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialSupplier_Supplier">
+    <End Type="OOOPerchatkiModel.Supplier" Role="Supplier" Multiplicity="1" />
+    <End Type="OOOPerchatkiModel.MaterialSupplier" Role="MaterialSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MaterialSupplier">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supplier_SupplierType">
+    <End Type="OOOPerchatkiModel.SupplierType" Role="SupplierType" Multiplicity="1" />
+    <End Type="OOOPerchatkiModel.Supplier" Role="Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupplierType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="SupplierTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc64c35ee74841f5a164d783ec243835" Name="Diagram1">
+        <EntityTypeShape EntityType="OOOPerchatkiModel.History" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="OOOPerchatkiModel.Material" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="OOOPerchatkiModel.MaterialSupplier" Width="1.5" PointX="5.25" PointY="1.75" />
+        <EntityTypeShape EntityType="OOOPerchatkiModel.MaterialType" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="OOOPerchatkiModel.Supplier" Width="1.5" PointX="3" PointY="8.5" />
+        <EntityTypeShape EntityType="OOOPerchatkiModel.SupplierType" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="OOOPerchatkiModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="OOOPerchatkiModel.Unit" Width="1.5" PointX="0.75" PointY="6" />
+        <AssociationConnector Association="OOOPerchatkiModel.FK_Material_MaterialType" />
+        <AssociationConnector Association="OOOPerchatkiModel.FK_Material_Unit" />
+        <AssociationConnector Association="OOOPerchatkiModel.FK_MaterialSupplier_Material" />
+        <AssociationConnector Association="OOOPerchatkiModel.FK_MaterialSupplier_Supplier" />
+        <AssociationConnector Association="OOOPerchatkiModel.FK_Supplier_SupplierType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

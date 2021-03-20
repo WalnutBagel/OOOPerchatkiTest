@@ -1,0 +1,95 @@
+﻿<Window x:Class="HandsClothes.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HandsClothes"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <Border BorderBrush="Black" 
+                BorderThickness="1"
+                Width="Auto"
+                Height="120"
+                Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="160"/>
+                </Grid.ColumnDefinitions>
+
+                <Image/>
+
+                <StackPanel Grid.Column="1">
+                    <WrapPanel Grid.Column="1" Margin="5, 0" HorizontalAlignment="Left">
+                        <TextBlock Margin="5, 5, 0, 5"
+                               HorizontalAlignment="Left"
+                               FontSize="15"
+                               FontFamily="Candara"
+                               Text="Тип материала:"/>
+
+                        <TextBlock Margin="5, 5, 0, 5"
+                               HorizontalAlignment="Left"
+                               FontSize="15"
+                               FontFamily="Candara"/>
+
+                        <TextBlock Margin="5, 5, 0, 5"
+                               HorizontalAlignment="Left"
+                               FontSize="15"
+                               FontFamily="Candara"
+                               Text="| Наиминование материала:"/>
+
+                        <TextBlock Margin="5, 5, 0, 5"
+                               HorizontalAlignment="Left"
+                               FontSize="15"
+                               FontFamily="Candara"/>
+                    </WrapPanel>
+
+                    <WrapPanel Grid.Column="1" Margin="5, 0" HorizontalAlignment="Left">
+                        <TextBlock Margin="5, 5, 0, 0"
+                               HorizontalAlignment="Left"
+                               FontSize="12"
+                               FontFamily="Candara"
+                               Text="Минимальное количество:"/>
+
+                        <TextBlock Margin="5, 5, 0, 0"
+                               HorizontalAlignment="Left"
+                               FontSize="12"
+                               FontFamily="Candara"/>
+
+                    </WrapPanel>
+
+                    <WrapPanel Grid.Column="1" Margin="5, 0" HorizontalAlignment="Left">
+                        <TextBlock Margin="5, 5, 0, 0"
+                               HorizontalAlignment="Left"
+                               FontSize="12"
+                               FontFamily="Candara"
+                               Text="Поставщики:"/>
+
+                        <TextBlock Margin="5, 5, 0, 0"
+                               HorizontalAlignment="Left"
+                               FontSize="12"
+                               FontFamily="Candara"/>
+
+                    </WrapPanel>
+                </StackPanel>
+                
+
+                <TextBlock Margin="5, 10"
+                               HorizontalAlignment="Left"
+                               FontSize="18"
+                               FontFamily="Candara"
+                               Text="Остаток:"
+                               Grid.Column="2"/>
+
+                <TextBlock Margin="5, 10"
+                           HorizontalAlignment="Right"
+                           FontSize="18"
+                           FontFamily="Candara" 
+                           TextWrapping="Wrap"
+                           Grid.Column="2"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
