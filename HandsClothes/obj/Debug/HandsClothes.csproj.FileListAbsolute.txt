@@ -28,8 +28,6 @@ D:\учеба\подготовка к экзамену\HandsClothes-master\Hands
 D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\bin\Debug\HandsClothes.exe.config
 D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\bin\Debug\HandsClothes.exe
 D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\bin\Debug\HandsClothes.pdb
-D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\bin\Debug\EntityFramework.dll
-D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\bin\Debug\EntityFramework.SqlServer.dll
 D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\bin\Debug\EntityFramework.xml
 D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\bin\Debug\EntityFramework.SqlServer.xml
 D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\bin\Debug\ru\EntityFramework.resources.dll
@@ -52,3 +50,7 @@ D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes
 D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\obj\Debug\HandsClothes.csproj.CopyComplete
 D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\obj\Debug\HandsClothes.exe
 D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\obj\Debug\HandsClothes.pdb
+D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\obj\Debug\Windows\MinQuanityWindow.g.cs
+D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\obj\Debug\Windows\MinQuanityWindow.baml
+D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\obj\Debug\Windows\AddEditMateralWindow.g.cs
+D:\учеба\подготовка к экзамену\PerchatOchka\HandsClothes\obj\Debug\Windows\AddEditMateralWindow.baml

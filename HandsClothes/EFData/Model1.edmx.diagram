@@ -8,11 +8,11 @@
         <EntityTypeShape EntityType="OOOPerchatkiModel.History" Width="1.5" PointX="5.75" PointY="4.75" />
         <EntityTypeShape EntityType="OOOPerchatkiModel.Material" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="OOOPerchatkiModel.MaterialSupplier" Width="1.5" PointX="5.25" PointY="1.75" />
-        <EntityTypeShape EntityType="OOOPerchatkiModel.MaterialType" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="OOOPerchatkiModel.MaterialType" Width="1.5" PointX="0.75" PointY="6" />
         <EntityTypeShape EntityType="OOOPerchatkiModel.Supplier" Width="1.5" PointX="3" PointY="8.5" />
         <EntityTypeShape EntityType="OOOPerchatkiModel.SupplierType" Width="1.5" PointX="0.75" PointY="9" />
         <EntityTypeShape EntityType="OOOPerchatkiModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" />
-        <EntityTypeShape EntityType="OOOPerchatkiModel.Unit" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="OOOPerchatkiModel.Unit" Width="1.5" PointX="0.75" PointY="2" />
         <AssociationConnector Association="OOOPerchatkiModel.FK_Material_MaterialType" />
         <AssociationConnector Association="OOOPerchatkiModel.FK_Material_Unit" />
         <AssociationConnector Association="OOOPerchatkiModel.FK_MaterialSupplier_Material" />

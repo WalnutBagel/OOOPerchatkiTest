@@ -17,13 +17,13 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaterialName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="MaterialTypeId" Type="smallint" Nullable="false" />
+    <Property Name="MaterialTypeId" Type="int" Nullable="false" />
     <Property Name="PhotoPath" Type="nvarchar(max)" />
     <Property Name="Price" Type="decimal" Precision="12" Scale="2" Nullable="false" />
     <Property Name="QuanityInStock" Type="int" Nullable="false" />
     <Property Name="MinQuanity" Type="int" Nullable="false" />
     <Property Name="QuanityInPack" Type="int" Nullable="false" />
-    <Property Name="UnitId" Type="tinyint" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="MaterialSupplier">
@@ -38,7 +38,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaterialTypeName" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="Supplier">
@@ -73,7 +73,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UnitName" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <Association Name="FK_Material_MaterialType">

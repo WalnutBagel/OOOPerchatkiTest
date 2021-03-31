@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HandsClothes.EFData;
+using HandsClothes.Windows;
 using static HandsClothes.EFData.DataFrame;
 
 namespace HandsClothes.Pages
@@ -25,7 +26,7 @@ namespace HandsClothes.Pages
 
         int numberPage = 0;
 
-        Material selectMaterial;
+        public List<Material> selectMaterial;
 
         List<string> SortList = new List<string>()
         {
@@ -40,6 +41,10 @@ namespace HandsClothes.Pages
         public ListOfMaterialsPage()
         {
             InitializeComponent();
+
+            btnEditMinCount.Visibility = Visibility.Collapsed;
+            btnEditMaterial.Visibility = Visibility.Collapsed;
+
             MaterialLV.ItemsSource = Filter();
 
             var typeMaterial = Context.MaterialType.ToList();
@@ -117,8 +122,11 @@ namespace HandsClothes.Pages
                 materialList = materialList.Where(i => i.MaterialTypeId == selectFiltr).ToList();
             }
 
+            // Вывод количества записей 
+
             tbStartCount.Text = "15";
             tbAllCount.Text = materialList.Count.ToString();
+
             // Вывод по страницам
 
             materialList = materialList.
@@ -158,31 +166,29 @@ namespace HandsClothes.Pages
             UpdateTable();
         }
 
-        private void btn1_Click(object sender, RoutedEventArgs e)
-        {
-            //numberPage = Convert.ToInt32(btn1.Content);
-            //btn1.Content = (numberPage + 1).ToString();
-            //btn2.Content = (numberPage + 2).ToString();
-            //btn3.Content = (numberPage + 3).ToString();
-            //UpdateTable();
-        }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            //numberPage = Convert.ToInt32(btn1.Content);
-            //btn1.Content = (numberPage + 1).ToString();
-            //btn2.Content = (numberPage + 2).ToString();
-            //btn3.Content = (numberPage + 3).ToString();
-            //UpdateTable();
+            if (materialList.Count > 0)
+            {
+                numberPage++;
+                btn1.Content = (numberPage + 1).ToString();
+                btn2.Content = (numberPage + 2).ToString();
+                btn3.Content = (numberPage + 3).ToString();
+            }
+            UpdateTable();
         }
 
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
-            //numberPage = Convert.ToInt32(btn1.Content);
-            //btn1.Content = (numberPage + 1).ToString();
-            //btn2.Content = (numberPage + 2).ToString();
-            //btn3.Content = (numberPage + 3).ToString();
-            //UpdateTable();
+            if (materialList.Count > 0)
+            {
+                numberPage += 2;
+                btn1.Content = (numberPage + 2).ToString();
+                btn2.Content = (numberPage + 3).ToString();
+                btn3.Content = (numberPage + 4).ToString();
+            }
+            UpdateTable();
         }
 
         private void SortCMB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -200,5 +206,43 @@ namespace HandsClothes.Pages
             UpdateTable();
         }
 
+        private void btnEditMinCount_Click(object sender, RoutedEventArgs e)
+        {
+            selectMaterial = MaterialLV.SelectedItems as List<Material>;
+
+            if (selectMaterial != null)
+            {
+                HelperClasses.MinQuanityMaterial.getMinQuanity = selectMaterial.Max(i => i.MinQuanity);
+            }
+
+            MinQuanityWindow minQuanityWindow = new MinQuanityWindow();
+            minQuanityWindow.ShowDialog();
+
+            UpdateTable();
+        }
+
+        private void btnEditMaterial_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditMateralWindow addEditMateralWindow = new AddEditMateralWindow(MaterialLV.SelectedItem as Material);
+            this.Opacity = 0.3;
+            addEditMateralWindow.ShowDialog();
+            UpdateTable();
+            this.Opacity = 1;
+        }
+
+        private void btnAddMaterial_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditMateralWindow addEditMateralWindow = new AddEditMateralWindow();
+            this.Opacity = 0.3;
+            addEditMateralWindow.ShowDialog();
+            UpdateTable();
+            this.Opacity = 1;
+        }
+
+        private void MaterialLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnEditMinCount.Visibility = Visibility.Visible; // стала видимой кнопка изменения минимального количества
+            btnEditMaterial.Visibility = Visibility.Visible; // стала видимой кнопка изменения материала  
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace HandsClothes.EFData
             this.Material = new HashSet<Material>();
         }
     
-        public short id { get; set; }
+        public int id { get; set; }
         public string MaterialTypeName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
