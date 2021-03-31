@@ -88,13 +88,13 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaterialName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MaterialTypeId" Type="Int16" Nullable="false" />
+    <Property Name="MaterialTypeId" Type="Int32" Nullable="false" />
     <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
     <Property Name="QuanityInStock" Type="Int32" Nullable="false" />
     <Property Name="MinQuanity" Type="Int32" Nullable="false" />
     <Property Name="QuanityInPack" Type="Int32" Nullable="false" />
-    <Property Name="UnitId" Type="Byte" Nullable="false" />
+    <Property Name="UnitId" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="MaterialType" Relationship="OOOPerchatkiModel.FK_Material_MaterialType" FromRole="Material" ToRole="MaterialType" />
     <NavigationProperty Name="Unit" Relationship="OOOPerchatkiModel.FK_Material_Unit" FromRole="Material" ToRole="Unit" />
@@ -114,7 +114,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaterialTypeName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Material" Relationship="OOOPerchatkiModel.FK_Material_MaterialType" FromRole="MaterialType" ToRole="Material" />
   </EntityType>
@@ -153,7 +153,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UnitName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Material" Relationship="OOOPerchatkiModel.FK_Material_Unit" FromRole="Unit" ToRole="Material" />
   </EntityType>

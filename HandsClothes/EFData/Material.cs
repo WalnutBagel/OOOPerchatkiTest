@@ -22,13 +22,13 @@ namespace HandsClothes.EFData
     
         public int id { get; set; }
         public string MaterialName { get; set; }
-        public short MaterialTypeId { get; set; }
+        public int MaterialTypeId { get; set; }
         public string PhotoPath { get; set; }
         public decimal Price { get; set; }
         public int QuanityInStock { get; set; }
         public int MinQuanity { get; set; }
         public int QuanityInPack { get; set; }
-        public byte UnitId { get; set; }
+        public int UnitId { get; set; }
         public string Description { get; set; }
     
         public virtual MaterialType MaterialType { get; set; }

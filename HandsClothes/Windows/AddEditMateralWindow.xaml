@@ -1,0 +1,212 @@
+﻿<Window x:Class="HandsClothes.Windows.AddEditMateralWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HandsClothes.Windows"
+        mc:Ignorable="d"
+        Title="AddEditMateralWindow" 
+        Height="800" 
+        Width="800"
+        Icon="/Resourses/Logo.ico"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="800"
+        MinWidth="500"
+        MaxWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer>
+            <StackPanel>
+
+                <!-- Заголовок -->
+
+                <WrapPanel>
+                    <Image Grid.RowSpan="2"
+               Source="/Resourses/Logo.ico"
+               HorizontalAlignment="Left"
+               Margin="20 0"
+                   Width="80"/>
+                    <TextBlock Text="Добавление материала"
+                           VerticalAlignment="Center"
+                           FontSize="25"
+                           FontWeight="Bold"
+                           FontFamily="Candara"/>
+                </WrapPanel>
+
+                <Image x:Name="imgMaterial"
+                   Width="100"
+                   Height="120"/>
+                <Button x:Name="btnChooseImg"
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    FontFamily="Candara"
+                    Content="Выбрать Изображение"
+                    Click="btnChooseImg_Click"/>
+
+
+                <TextBlock Text="Наименование"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       FontFamily="Candara"
+                       Margin="0 20 0 0"/>
+
+                <TextBox x:Name="txtName"
+                     HorizontalAlignment="Center"
+                     FontSize="20"
+                     FontFamily="Candara"
+                     Width="150"/>
+
+                <TextBlock Text="Тип материала"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       FontFamily="Candara"
+                       Margin="0 20 0 0"/>
+
+                <ComboBox x:Name="cmbTypeMAterial"
+                     HorizontalAlignment="Center"
+                     FontSize="20"
+                     FontFamily="Candara"
+                     Width="150"/>
+
+
+                <TextBlock Text="Количество на складе"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       FontFamily="Candara"
+                       Margin="0 20 0 0"/>
+
+                <TextBox x:Name="txtCount"
+                     HorizontalAlignment="Center"
+                     FontSize="20"
+                     FontFamily="Candara"
+                     Width="150"/>
+
+                <TextBlock Text="Единица измерения"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       FontFamily="Candara"
+                       Margin="0 20 0 0"/>
+
+                <ComboBox x:Name="cmbUnitMaterial"
+                     HorizontalAlignment="Center"
+                     FontSize="20"
+                     FontFamily="Candara"
+                     Width="150"/>
+
+
+                <TextBlock Text="Количество в упаковке"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       FontFamily="Candara"
+                       Margin="0 20 0 0"/>
+
+                <TextBox x:Name="txtCountInBox"
+                     HorizontalAlignment="Center"
+                     FontSize="20"
+                     FontFamily="Candara"
+                     Width="150"/>
+
+
+                <TextBlock Text="Минимальное количество"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       FontFamily="Candara"
+                       Margin="0 20 0 0"/>
+
+                <TextBox x:Name="txtMinCount"
+                     HorizontalAlignment="Center"
+                     FontSize="20"
+                     FontFamily="Candara"
+                     Width="150"/>
+
+                <TextBlock Text="Cтоимость за единицу"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       FontFamily="Candara"
+                       Margin="0 20 0 0"/>
+
+                <TextBox x:Name="txtPrice"
+                     HorizontalAlignment="Center"
+                     FontSize="20"
+                     FontFamily="Candara"
+                     Width="150"/>
+
+                <TextBlock Text="Подробное описание"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       FontFamily="Candara"
+                       Margin="0 20 0 0"/>
+
+                <TextBox x:Name="txtDiscr"
+                     HorizontalAlignment="Center"
+                     FontSize="20"
+                     FontFamily="Candara"
+                     Width="150"/>
+
+
+                <Button x:Name="btnSave"
+                        HorizontalAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Candara"
+                        Content="Добавить"
+                        Margin="0 20 0 0"
+                        Click="btnSave_Click"/>
+
+                <Button x:Name="btnClose"
+                        HorizontalAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Candara"
+                        Content="Отмена"
+                        Margin="0 20 0 0"
+                        Click="btnClose_Click"/>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid Grid.Column="1">
+            <StackPanel>
+                <TextBlock Text="Поставщики"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                           Margin="0 0 0 20"/>
+
+                <TextBlock Text="Список поставщиков"
+                           HorizontalAlignment="Center"
+                           FontSize="20"/>
+                <ComboBox x:Name="cmbSupplier"
+                          HorizontalAlignment="Center"
+                          Width="200"
+                          Height="30"
+                          FontSize="18"
+                          Margin="0 0 0 20"
+                          IsEditable="True"/>
+                <ListView x:Name="lvListSupplier" 
+                          Height="300">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Тип организации" DisplayMemberBinding="{Binding TypeSupp.TypeSupp1}"/>
+                            <GridViewColumn Header="Рейтинг" DisplayMemberBinding="{Binding Rate}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <Button x:Name="btnAddSup"
+                        Content="Добавить поставщика"
+                        Width="200"
+                        Height="30"
+                        FontSize="18"
+                        Click="btnAddSup_Click"/>
+            </StackPanel>
+
+
+
+        </Grid>
+
+
+    </Grid>
+</Window>
